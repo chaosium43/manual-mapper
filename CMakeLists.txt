@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.14)
+project(injector)
+project(testdll)
+set(CMAKE_SHARED_LIBRARY_PREFIX "") 
+set(CMAKE_IMPORT_LIBRARY_PREFIX "")
+add_executable(injector injector.cpp injector.hpp injectorlib.cpp)
+add_library(testdll SHARED testdll.cpp)
+target_link_libraries(injector PRIVATE ntdll)
